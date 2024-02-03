@@ -7,4 +7,4 @@ router.route("/products").get(getAllProducts)
 
 router.route("/product/new").post(createProduct)
 
-module.exports = router
+module.exports = router;
