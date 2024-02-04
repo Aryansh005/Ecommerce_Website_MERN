@@ -41,26 +41,30 @@ const productSchema = new mongoose.Schema({
     maxLength: [4, "Stock cannot exceed 4 characters"],
     default: 1,
   },
-  numOfReviews: [
+  numOfReviews: {
+    type: Number,
+    default: 0,
+  },
+  reviews: [
     {
       name: {
+        type: String,
+        required: true,
+      },
+      rating: {
         type: Number,
-        required:true
+        required: true,
       },
-      rating:{
-        type:Number,
-        required:true
-      },
-      comment:{
-        type:Number,
+      comment: {
+        type: String,
         required:true
       }
-    },
+    }
   ],
-  createdAt:{
-    type:Date,
-    default:Date.now
-  }
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  }, 
 });
 
-module.exports = mongoose.modelNames("product",productSchema)
+module.exports = mongoose.model("Product", productSchema);
